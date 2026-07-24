@@ -153,11 +153,13 @@
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
     .card {
       background: var(--bg-surface); border: 1px solid var(--line); border-radius: 10px;
-      padding: 20px; display: flex; flex-direction: column; transition: transform 0.2s ease, border-color 0.2s ease;
+      padding: 20px; display: flex; flex-direction: column; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none; color: inherit; cursor: pointer;
     }
-    .card:hover { border-color: var(--pink-dim); transform: translateY(-3px); }
-    .card h3 { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.015em; word-spacing: 0.04em; margin: 8px 0 6px; }
-    .card p { color: var(--muted); font-size: 0.92rem; margin-bottom: 14px; flex: 1; }
+    a.card:hover { border-color: var(--pink); transform: translateY(-4px); box-shadow: 0 6px 20px rgba(244, 184, 202, 0.15); }
+    a.card:hover h3 { color: var(--pink); }
+    .card h3 { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.015em; word-spacing: 0.04em; margin: 8px 0 6px; transition: color 0.2s ease; }
+    .card p { color: var(--muted); font-size: 0.92rem; margin-bottom: 0; flex: 1; }
     .card-read { font-family: var(--font-mono); font-size: 0.78rem; color: var(--pink); }
 
     /* Footer */
@@ -194,18 +196,71 @@
 </section>
 
 <main class="wrap">
+  <!-- Featured Mousepad Section -->
   <section class="section">
     <div class="section-head">
       <h2>Featured Mousepad</h2>
     </div>
-    <a href="mousepads.html" class="featured">
+    <a href="pmm-s2p-2.0.html" class="featured">
       <div>
         <span class="tag">MOUSEPAD</span>
         <span class="tag alt">SPEED</span>
       </div>
       <h3>PMM S2P 2.0</h3>
-      <p>The perfect cloth pad for glass lovers with low dynamic friction and smooth glide.</p>
+      <p>This is good and hard</p>
     </a>
+  </section>
+
+  <!-- Recent Mousepad Reviews Section (3 Sectors) -->
+  <section class="section">
+    <div class="section-head">
+      <h2>Recent Mousepad Reviews</h2>
+    </div>
+    <div class="grid">
+      <a href="pmm-s2p-2.0.html" class="card">
+        <div><span class="tag alt">SPEED</span></div>
+        <h3>PMM S2P 2.0</h3>
+        <p>This is good and hard</p>
+      </a>
+
+      <a href="the-masterpiece-vortex-v1.html" class="card">
+        <div><span class="tag alt">SPEED</span></div>
+        <h3>The Masterpiece Vortex v1</h3>
+        <p>The mousepad is good.</p>
+      </a>
+
+      <a href="pmm-s2p-2.0.html" class="card">
+        <div><span class="tag alt">CLOTH / HARD</span></div>
+        <h3>PMM S2P 2.0 (Glass Alternative)</h3>
+        <p>Ultra-low dynamic friction cloth pad engineered for glass lovers.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- All Reviews Section -->
+  <section class="section">
+    <div class="section-head">
+      <h2>All Reviews</h2>
+    </div>
+    <div class="grid">
+      <a href="pmm-s2p-2.0.html" class="featured">
+        <div>
+          <span class="tag">MOUSEPAD</span>
+          <span class="tag alt">SPEED</span>
+        </div>
+        <h3>PMM S2P 2.0 — Custom Hard Surface Mod</h3>
+        <p>High speed, low dynamic friction, and durable hard surface performance.<br><br>This is good and hard.</p>
+      </a>
+
+      <a href="the-masterpiece-vortex-v1.html" class="featured">
+        <div>
+          <span class="tag">MOUSEPAD</span>
+          <span class="tag alt">SPEED</span>
+        </div>
+        <h3>The Masterpiece Vortex v1 — Premium Speed Pad</h3>
+        <p>High performance glide with consistent tracking response.<br><br>The mousepad is good.</p>
+      </a>
+    </div>
   </section>
 </main>
 
