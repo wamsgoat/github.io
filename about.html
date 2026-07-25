@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Wamsgoat</title>
+  <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/wamsgoat/Images/41fbf7a42b26d86e93960e38b28b5566febca562/kirbs.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
@@ -154,32 +155,47 @@
     }
     .dropdown-item:last-child { border-bottom: none; }
     .dropdown-item:hover { background: rgba(244, 184, 202, 0.12); color: var(--pink); }
-    .btn {
-      font-family: var(--font-mono); font-size: 0.82rem; padding: 10px 18px;
-      border-radius: 4px; font-weight: 500; transition: all 0.2s ease;
-      display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none;
-    }
-    .btn-ghost { border: 1px solid var(--line); color: var(--text); background: transparent; }
-    .btn-ghost:hover { border-color: var(--pink); color: var(--pink); transform: translateY(-2px); }
 
-    /* Centered Big Text Container */
+    /* Content */
     main {
       flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 32px;
-      text-align: center;
+      padding: 40px 32px 60px;
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
     }
 
-    .about-heading {
+    h1 {
       font-family: var(--font-display);
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      line-height: 1.1;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.18;
       letter-spacing: 0.02em;
-      word-spacing: 0.08em;
+      word-spacing: 0.06em;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.02em;
+      word-spacing: 0.05em;
+      margin: 28px 0 16px;
       color: var(--pink);
-      text-shadow: 0 0 40px rgba(244, 184, 202, 0.15);
+    }
+
+    .setup-img-wrap {
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      overflow: hidden;
+    }
+
+    .setup-img-wrap img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      display: block;
     }
 
     /* Footer */
@@ -229,13 +245,19 @@
   </header>
 
   <main>
-    <h1 class="about-heading">I'm a no name</h1>
+    <h1>About</h1>
+
+    <h2>Setup:</h2>
+
+    <div class="setup-img-wrap">
+      <img src="https://raw.githubusercontent.com/wamsgoat/Images/268a66f102afa88782f6546e9d29d57f0ea52efa/IMG_2507.jpeg" alt="Setup">
+    </div>
   </main>
 
   <footer>
     <div class="footer-inner">
       <span>© 2026 Wamsgoat.</span>
-      <span><a href="index.html">Home</a> · <a href="mice.html">Mice</a></span>
+      <span><a href="index.html">Home</a> · <a href="contact.html">Contact</a></span>
     </div>
   </footer>
 
