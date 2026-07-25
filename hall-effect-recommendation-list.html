@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Masterpiece Vortex v1 Review — Wamsgoat</title>
+  <title>Hall Effect Recommendation List — Wamsgoat</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
@@ -53,9 +53,9 @@
     }
 
     .wrap {
-      max-width: 800px;
+      max-width: 860px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 32px;
       width: 100%;
     }
 
@@ -155,7 +155,12 @@
     .dropdown-item:last-child { border-bottom: none; }
     .dropdown-item:hover { background: rgba(244, 184, 202, 0.12); color: var(--pink); }
 
-    /* Back Link & Review Header */
+    /* Content Area */
+    main {
+      flex: 1;
+      padding: 40px 0 60px;
+    }
+
     .back-link {
       font-family: var(--font-mono);
       font-size: 0.82rem;
@@ -163,29 +168,11 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-top: 32px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .back-link:hover {
       text-decoration: underline;
-    }
-
-    .tag {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.06em;
-      color: var(--bg-deep);
-      background: var(--muted);
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-right: 6px;
-      margin-bottom: 12px;
-    }
-
-    .tag.alt {
-      background: var(--pink);
     }
 
     h1 {
@@ -194,87 +181,37 @@
       line-height: 1.18;
       letter-spacing: 0.02em;
       word-spacing: 0.06em;
-      margin-bottom: 16px;
+      margin-bottom: 24px;
     }
 
-    .meta-box {
-      background: var(--bg-surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 14px 20px;
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-bottom: 28px;
-    }
-
-    .meta-box span b {
+    .guide-content {
+      font-size: 1rem;
       color: var(--text);
-    }
-
-    /* Article Content */
-    .review-content {
-      font-size: 1.05rem;
-      color: #d1d1d1;
       line-height: 1.7;
     }
 
-    .review-content p {
-      margin-bottom: 18px;
-    }
-
-    .review-content h2 {
+    .guide-content h2 {
       font-family: var(--font-display);
       font-size: 1.35rem;
       letter-spacing: 0.02em;
       word-spacing: 0.05em;
-      margin: 32px 0 12px;
+      margin: 36px 0 12px;
       color: var(--pink);
     }
 
-    .review-image-wrap {
-      margin-top: 24px;
-      background: var(--bg-surface);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 16px;
-      text-align: center;
+    .guide-content ul {
+      margin-bottom: 24px;
+      padding-left: 24px;
     }
 
-    .review-image-wrap img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
-      display: block;
-      margin: 0 auto;
-      border: 1px solid var(--line);
-    }
-
-    .summary-box {
-      background: rgba(244, 184, 202, 0.06);
-      border: 1px solid var(--pink-dim);
-      border-radius: 8px;
-      padding: 24px;
-      margin-top: 36px;
-    }
-
-    .summary-box h3 {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      letter-spacing: 0.015em;
-      word-spacing: 0.04em;
-      color: var(--pink);
-      margin-bottom: 10px;
+    .guide-content li {
+      margin-bottom: 8px;
     }
 
     /* Footer */
     footer {
       border-top: 1px solid var(--line);
       padding: 24px 0;
-      margin-top: 48px;
     }
 
     .footer-inner {
@@ -318,32 +255,74 @@
   </header>
 
   <main class="wrap">
-    <a href="mousepads.html" class="back-link">&larr; Back to Mousepad Reviews</a>
+    <a href="guides.html" class="back-link">&larr; Back to Guides</a>
 
-    <article>
-      <div>
-        <span class="tag">MOUSEPAD</span>
-        <span class="tag alt">SPEED</span>
-      </div>
+    <article class="guide-content">
+      <h1>Hall Effect Recommendation List</h1>
 
-      <h1>The Masterpiece Vortex v1 Review</h1>
+      <h2>&lt;$50:</h2>
+      <ul>
+        <li>Everglide AE64 (PCB AND PLATE ONLY)</li>
+        <li>Everglide AE61 (PCB AND PLATE ONLY)</li>
+      </ul>
 
-      <div class="review-content">
-        <p>The mousepad is good</p>
+      <h2>&lt;$100:</h2>
+      <ul>
+        <li>Drunkdeer X60</li>
+        <li>Irok ND63 Ultra</li>
+        <li>Everglide AE64 Pro (Prebuilt)</li>
+        <li>Everglide SU66 (PCB AND PLATE ONLY)</li>
+        <li>Irok Mercury68 Max</li>
+        <li>Irok ND68 Pro</li>
+        <li>Everglide AE68 Pro (ABS)</li>
+        <li>Irok MG68 Plus</li>
+        <li>VGN Neon 68HE Super Competitive Plus</li>
+        <li>Irok MG75 Pro/Max</li>
+        <li>Irok Mars75</li>
+        <li>ATK RS7 Air</li>
+        <li>Weikav EG75</li>
+        <li>VGN Neon Super Competitive Wired</li>
+        <li>Geonworks Venom (Anything with Geonworks Venom PCB)
+          <ul>
+            <li>Venom60HE (v1, v2 or RGB), Venom TKL, Venom65HE</li>
+          </ul>
+        </li>
+      </ul>
 
-        <div class="review-image-wrap">
-          <a href="https://github.com/wamsgoat/Images/blob/28d5d61a44a20a02873668745363b98920da54a5/vortex.webp?raw=true" target="_blank" rel="noopener noreferrer">
-            <img src="https://github.com/wamsgoat/Images/blob/28d5d61a44a20a02873668745363b98920da54a5/vortex.webp?raw=true" alt="The Masterpiece Vortex v1 Mousepad">
-          </a>
-        </div>
-      </div>
+      <h2>&lt;$150:</h2>
+      <ul>
+        <li>Aula AG60 Pro</li>
+        <li>Everglide AE68 Pro (Alu)</li>
+        <li>Everglide SU75 Ultra</li>
+        <li>Drunkdeer A75 Ultra</li>
+        <li>EWEADN X87HE (If on sale)</li>
+      </ul>
+
+      <h2>&gt;$150:</h2>
+      <ul>
+        <li>Everglide SU66 (Prebuilt)</li>
+        <li>Morkblade MK60 (AULA SWITCHES VARIANT ONLY)</li>
+        <li>Chillkey Slice68</li>
+        <li>Aula AG75 Ultra</li>
+        <li>Everglide SU75 Ultra</li>
+        <li>Chilkey Slice75 (FLUX SWITCHES)</li>
+        <li>VGN FLASH 75HE</li>
+        <li>Wooting 80HE (Overpriced, only good for ISO layout)</li>
+        <li>ATK x QK Hex80 (Expensive but on sale often)</li>
+        <li>Morkblade Bold TKL (Expensive)</li>
+        <li>Rakka (Anything with a Rakka PCB)
+          <ul>
+            <li>Rakka 80 Edge, Rakka 60 Atlas (PCB), Cycle8</li>
+          </ul>
+        </li>
+      </ul>
     </article>
   </main>
 
   <footer>
     <div class="footer-inner">
       <span>© 2026 Wamsgoat.</span>
-      <span><a href="index.html">Home</a> · <a href="mousepads.html">Mousepads</a></span>
+      <span><a href="guides.html">Guides</a> · <a href="mice.html">Mice</a> · <a href="index.html">Home</a></span>
     </div>
   </footer>
 
