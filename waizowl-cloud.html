@@ -11,6 +11,7 @@
     href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
     rel="stylesheet">
   <style>
+
     :root {
       --bg-deep: #0d0d0d;
       --bg-surface: #1a1a1a;
@@ -151,13 +152,6 @@
     }
     .dropdown-item:last-child { border-bottom: none; }
     .dropdown-item:hover { background: rgba(244, 184, 202, 0.12); color: var(--pink); }
-    .btn {
-      font-family: var(--font-mono); font-size: 0.82rem; padding: 10px 18px;
-      border-radius: 4px; font-weight: 500; transition: all 0.2s ease;
-      display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none;
-    }
-    .btn-ghost { border: 1px solid var(--line); color: var(--text); background: transparent; }
-    .btn-ghost:hover { border-color: var(--pink); color: var(--pink); transform: translateY(-2px); }
 
     /* Back Link & Review Header */
     .back-link {
@@ -209,7 +203,7 @@
       font-family: var(--font-mono);
       font-size: 0.82rem;
       color: var(--muted);
-      margin-bottom: 32px;
+      margin-bottom: 24px;
       display: flex;
       gap: 24px;
       flex-wrap: wrap;
@@ -230,6 +224,15 @@
       margin-bottom: 18px;
     }
 
+    .review-content ul {
+      margin-bottom: 18px;
+      padding-left: 24px;
+    }
+
+    .review-content li {
+      margin-bottom: 6px;
+    }
+
     .review-content h2 {
       font-family: var(--font-display);
       font-size: 1.35rem;
@@ -237,42 +240,6 @@
       word-spacing: 0.05em;
       margin: 32px 0 12px;
       color: var(--pink);
-    }
-
-    .score-block {
-      background: var(--bg-surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 20px;
-      margin: 20px 0;
-    }
-
-    .score-title {
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--pink);
-      margin-bottom: 8px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .tools-list {
-      background: var(--bg-surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin: 16px 0;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .tools-list ul {
-      list-style: square;
-      padding-left: 20px;
-      margin-top: 8px;
-      color: var(--text);
     }
 
     .review-image-wrap {
@@ -291,23 +258,6 @@
       display: block;
       margin: 0 auto;
       border: 1px solid var(--line);
-    }
-
-    .summary-box {
-      background: rgba(244, 184, 202, 0.06);
-      border: 1px solid var(--pink-dim);
-      border-radius: 8px;
-      padding: 24px;
-      margin-top: 36px;
-    }
-
-    .summary-box h3 {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      letter-spacing: 0.015em;
-      word-spacing: 0.04em;
-      color: var(--pink);
-      margin-bottom: 10px;
     }
 
     /* Footer */
@@ -347,7 +297,7 @@
               <a href="index.html" class="dropdown-item">Home &rarr;</a>
               <a href="mice.html" class="dropdown-item">Mice Reviews &rarr;</a>
               <a href="mousepads.html" class="dropdown-item">Mousepad Reviews &rarr;</a>
-              <a href="accessories.html" class="dropdown-item">Accessories & Skates &rarr;</a>
+              <a href="accessories.html" class="dropdown-item">Accessories &amp; Skates &rarr;</a>
               <a href="guides.html" class="dropdown-item">Guides &rarr;</a>
               <a href="about.html" class="dropdown-item">About &rarr;</a>
             </div>
@@ -356,7 +306,6 @@
       </nav>
     </div>
   </header>
-
   <main class="wrap">
     <a href="mice.html" class="back-link">&larr; Back to Mice Reviews</a>
 
@@ -366,59 +315,52 @@
         <span class="tag alt">WIRELESS</span>
       </div>
 
-      <h1>PMM Zen 8k Mini Review</h1>
+      <h1>Waizowl Cloud</h1>
 
       <div class="meta-box">
         <span>Hand Size Reference: <b>20x10</b></span>
       </div>
 
       <div class="review-content">
-        <p>Opening with some info about myself and how long I have used the mouse. I am Celestial on Marvel Rivals,
-          Champ numerous times on R6, and used to be Global Elite in CSGO back in the day. Also play solo games either
-          on MNK or controller.</p>
+        <h2>Introduction:</h2>
+        <p>me buy mouse</p>
 
-        <p>I have been using the Zen 8k Mini since July on and off with other mice. But can say the Zen has had a lot of
-          desk time in the last few months.</p>
-
-        <p>Also have to say: I have no affiliation with PMM and bought this product with my own money. This is an honest
-          review.</p>
-
-        <h2>Onto the review:</h2>
-
-        <p>I purchased the DIY mod kit for my current “main” mouse at the time (Viper v3 pro) as I really liked the
-          shape. But having used smaller and lighter mice wanted something that followed that. I had already purchased
-          the Cyber 4.1 mod kit from PMM and knew I could trust the Zen. So I made the purchase.</p>
-
-        <p>In the time I have used the Zen I have played many different games to test how it is. The Zen is just such a
-          good universal shape for someone who wanted something a tad smaller than others available.</p>
+        <h2>In the Box:</h2>
+        <ul>
+          <li>Mouse</li>
+          <li>Receiver</li>
+          <li>Reciever adapter</li>
+          <li>Cable</li>
+          <li>Spare skates</li>
+        </ul>
 
         <h2>Shape:</h2>
-        <p>I adore the shape. It is easily my favourite thing about it. I have 20x10 hands for reference and can
-          easily knuckle claw grip it. Super comfy and fits like a glove.</p>
-        <p>Due to the smaller shape of the Zen Mini it will be hard for anyone with even average sized hands to palm grip.</p>
+        <p>shape me like</p>
 
-        <h2>Weight:</h2>
-        <p>Coming in at 31g on my scales with the magnesium scroll wheel and both CF rods. It’s just so light compared to my other mice in the same size range.</p>
+        <h2>Clicks:</h2>
+        <p>clicks perfect</p>
 
-        <h2>Build Quality:</h2>
-        <p>Due to choosing the “Light” shell and not the “Solid” version it is somewhat flexible when trying to push
-          into the shell. But when gaming this is a non-issue.</p>
-        <p>Only reason I’m taking off a point in this category is due to the 3D printed nature of the shell (even if it does feel more solid than some non 3D printed mice).</p>
+        <h2>Quality Control:</h2>
+        <p>wobbly base but overall good</p>
 
-        <h2>Experience with PMM and Shipping:</h2>
-        <p>When I purchased my Cyber 4.1 shipping updates were slow and inconsistent along with taking a while to arrive. No fault of PMM.</p>
-        <p>But this was a completely different experience. Everything was quick and easy. The PMM website is beautiful and easy to navigate. They got my order shipped fast. Just great. This should now be even better for US based customers.</p>
+        <h2>Coating:</h2>
+        <p>nice</p>
 
-        <h2>Building the Mouse:</h2>
-        <p>Mod kit comes with everything needed to assemble the mouse. However I found the Zen Mini a little finicky to assemble, mainly due to the size and shape of the PCB and the shell sort of interfering with it.</p>
-        <p>I also added both CF rods which took me longer than I wish to admit to put in.</p>
+        <h2>Stock skates:</h2>
+        <p>above average</p>
 
-        <h2>Summary:</h2>
-        <p>If you are looking for a lightweight alternative to your Viper v3 pro don’t look any further than the PMM Zen 8k Mini. It is simply a phenomenal mouse.</p>
+        <h2>Performance:</h2>
+        <p>locked to 1k with nano dongle but still good</p>
+
+        <h2>Software:</h2>
+        <p>its okay</p>
+
+        <h2>Conclusion:</h2>
+        <p>me like mouse</p>
 
         <div class="review-image-wrap">
-          <a href="https://github.com/wamsgoat/github.io/blob/d258dd1a2c519929e72bee34f3aa5ebc0c8521da/mouse_img/PMM%20Zen%20Mini.JPG?raw=true" target="_blank" rel="noopener noreferrer">
-            <img src="https://github.com/wamsgoat/github.io/blob/d258dd1a2c519929e72bee34f3aa5ebc0c8521da/mouse_img/PMM%20Zen%20Mini.JPG?raw=true" alt="PMM Zen 8k Mini Mouse">
+          <a href="https://github.com/wamsgoat/github.io/blob/c9099fb76f9279199d48280dba1a055431b812d9/mouse_img/Waizowl%20Cloud.JPG?raw=true" target="_blank" rel="noopener noreferrer">
+            <img src="https://github.com/wamsgoat/github.io/blob/c9099fb76f9279199d48280dba1a055431b812d9/mouse_img/Waizowl%20Cloud.JPG?raw=true" alt="Waizowl Cloud">
           </a>
         </div>
       </div>
@@ -427,8 +369,8 @@
 
   <footer>
     <div class="footer-inner">
-      <span>© 2026 Wamsgoat.</span>
-      <span><a href="mice.html">Back to Mice</a> · <a href="index.html">Home</a></span>
+      <span>&copy; 2026 Wamsgoat.</span>
+      <span><a href="mice.html">Back to Mice</a> &middot; <a href="index.html">Home</a></span>
     </div>
   </footer>
 

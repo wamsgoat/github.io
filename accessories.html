@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wamsgoat — Accessories & Skates Reviews</title>
-  <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/wamsgoat/Images/41fbf7a42b26d86e93960e38b28b5566febca562/kirbs.jpg">
+  <title>Wamsgoat</title>
+  <link rel="icon" type="image/jpeg" href="https://github.com/wamsgoat/github.io/blob/b5e5160f2e6b89c8d084c785d22875ee3e828b8c/other_img/kirby.jpg?raw=true">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -125,23 +125,24 @@
 
     /* Sections & Cards */
     .section { padding: 32px 0; }
-    .section-head h2 { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.02em; word-spacing: 0.05em; margin-bottom: 16px; }
+    .section-head { text-align: center; }
+    .section-head h2 { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: 0.02em; word-spacing: 0.05em; margin-bottom: 16px; text-align: center; }
 
     .featured {
       background: var(--bg-surface); border: 1px solid var(--line); border-radius: 10px; padding: 28px 32px;
       transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-      text-decoration: none; color: inherit; display: flex; flex-direction: column; cursor: pointer;
+      text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; text-align: center; cursor: pointer;
     }
     a.featured:hover { border-color: var(--pink); transform: translateY(-4px); box-shadow: 0 6px 20px rgba(244, 184, 202, 0.15); }
     a.featured:hover h3 { color: var(--pink); }
     .tag {
       display: inline-block; font-family: var(--font-mono); font-size: 0.68rem;
       letter-spacing: 0.06em; color: var(--bg-deep); background: var(--muted);
-      padding: 3px 8px; border-radius: 4px; margin-right: 6px; margin-bottom: 8px;
+      padding: 3px 8px; border-radius: 4px; margin: 0 3px 8px 3px;
     }
     .tag.alt { background: var(--pink); }
-    .featured h3 { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 0.015em; word-spacing: 0.04em; margin: 8px 0; transition: color 0.2s ease; }
-    .featured p { color: var(--muted); margin-bottom: 0; }
+    .featured h3 { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 0.015em; word-spacing: 0.04em; margin: 8px 0; text-align: center; transition: color 0.2s ease; }
+    .featured p { color: var(--muted); margin-bottom: 0; text-align: center; }
 
     .btn {
       font-family: var(--font-mono); font-size: 0.82rem; padding: 10px 18px;
@@ -154,14 +155,14 @@
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
     .card {
       background: var(--bg-surface); border: 1px solid var(--line); border-radius: 10px;
-      padding: 24px; display: flex; flex-direction: column; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      padding: 24px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       text-decoration: none; color: inherit; cursor: pointer;
     }
     a.card:hover { border-color: var(--pink); transform: translateY(-4px); box-shadow: 0 6px 20px rgba(244, 184, 202, 0.15); }
     a.card:hover h3 { color: var(--pink); }
-    .card h3 { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.015em; word-spacing: 0.04em; margin: 8px 0 6px; transition: color 0.2s ease; }
-    .card p { color: var(--muted); font-size: 0.92rem; margin-bottom: 0; flex: 1; }
-    .card-read { font-family: var(--font-mono); font-size: 0.78rem; color: var(--pink); }
+    .card h3 { font-family: var(--font-display); font-size: 1.05rem; letter-spacing: 0.015em; word-spacing: 0.04em; margin: 8px 0 6px; text-align: center; transition: color 0.2s ease; }
+    .card p { color: var(--muted); font-size: 0.92rem; margin-bottom: 0; flex: 1; text-align: center; }
+    .card-read { font-family: var(--font-mono); font-size: 0.78rem; color: var(--pink); text-align: center; margin-top: auto; }
 
     /* Footer */
     footer { border-top: 1px solid var(--line); padding: 24px 0; margin-top: 20px; }
@@ -194,7 +195,7 @@
 
 <section class="hero">
   <div class="wrap">
-    <h1>Mouse skates,<br>sleeves and <span class="accent">gear mods.</span></h1>
+    <h1>Skates, sleeves and other<br><span class="accent">accessories</span></h1>
   </div>
 </section>
 
@@ -207,9 +208,9 @@
       <a href="ducklabs-green.html" class="featured">
         <div>
           <span class="tag">ACCESSORY</span>
-          <span class="tag alt">DOT SKATES</span>
+          <span class="tag alt">SKATES</span>
         </div>
-        <h3>Ducklabs Green — Smooth PTFE Dot Skates</h3>
+        <h3>Ducklabs Green dots</h3>
       </a>
     </div>
   </section>
@@ -222,9 +223,9 @@
       <a href="ducklabs-green.html" class="card">
         <div>
           <span class="tag">ACCESSORY</span>
-          <span class="tag alt">DOT SKATES</span>
+          <span class="tag alt">SKATES</span>
         </div>
-        <h3>Ducklabs Green — Smooth PTFE Dot Skates</h3>
+        <h3>Ducklabs Green dots</h3>
       </a>
 
       <a href="#" class="card" style="opacity: 0.6; cursor: default;">
@@ -254,9 +255,9 @@
       <a href="ducklabs-green.html" class="featured">
         <div>
           <span class="tag">ACCESSORY</span>
-          <span class="tag alt">DOT SKATES</span>
+          <span class="tag alt">SKATES</span>
         </div>
-        <h3>Ducklabs Green — Smooth PTFE Dot Skates</h3>
+        <h3>Ducklabs Green dots</h3>
       </a>
 
       <a href="#" class="featured" style="opacity: 0.6; cursor: default;">
