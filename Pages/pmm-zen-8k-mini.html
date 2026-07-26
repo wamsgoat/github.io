@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PMM Zen 8k Mini Review — Wamsgoat</title>
+  <link rel="icon" type="image/jpeg" href="https://raw.githubusercontent.com/wamsgoat/Images/41fbf7a42b26d86e93960e38b28b5566febca562/kirbs.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-deep: #0d0d0d;
+      --bg-surface: #1a1a1a;
+      --line: #333333;
+      --pink: #f4b8ca;
+      --pink-dim: #a97e88;
+      --text: #ededed;
+      --muted: #969696;
+      --font-display: 'Archivo Black', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(244, 184, 202, 0.05), transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(150, 150, 150, 0.04), transparent 45%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ::selection {
+      background: var(--pink);
+      color: var(--bg-deep);
+    }
+
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(18, 16, 14, 0.85);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 32px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      color: var(--pink);
+    }
+
+    /* Header Dropdown Menu */
+    .dropdown-wrap { position: relative; display: inline-block; }
+    .nav-menu-btn {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background: rgba(26, 26, 26, 0.8);
+      border: 1px solid var(--line);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .nav-menu-btn .pink-dash {
+      width: 10px;
+      height: 2px;
+      border-radius: 1px;
+      background: var(--pink);
+      display: inline-block;
+      box-shadow: 0 0 8px var(--pink);
+      transition: transform 0.2s ease;
+    }
+    .nav-menu-btn:hover,
+    .dropdown-wrap:hover .nav-menu-btn {
+      border-color: var(--pink);
+      color: var(--pink);
+      background: rgba(244, 184, 202, 0.08);
+      box-shadow: 0 0 16px rgba(244, 184, 202, 0.15);
+      transform: translateY(-1px);
+    }
+    .dropdown-wrap:hover .nav-menu-btn .pink-dash {
+      transform: scaleX(1.3);
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      padding-top: 6px;
+      z-index: 50;
+    }
+    .dropdown-wrap:hover .dropdown-menu,
+    .dropdown-menu:hover,
+    .dropdown-menu.show { display: block; }
+    .dropdown-inner {
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      min-width: 220px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+      overflow: hidden;
+    }
+    .dropdown-item {
+      display: block;
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text);
+      border-bottom: 1px solid var(--line);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+    .dropdown-item:last-child { border-bottom: none; }
+    .dropdown-item:hover { background: rgba(244, 184, 202, 0.12); color: var(--pink); }
+    .btn {
+      font-family: var(--font-mono); font-size: 0.82rem; padding: 10px 18px;
+      border-radius: 4px; font-weight: 500; transition: all 0.2s ease;
+      display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none;
+    }
+    .btn-ghost { border: 1px solid var(--line); color: var(--text); background: transparent; }
+    .btn-ghost:hover { border-color: var(--pink); color: var(--pink); transform: translateY(-2px); }
+
+    /* Back Link & Review Header */
+    .back-link {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--pink);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      color: var(--bg-deep);
+      background: var(--muted);
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-right: 6px;
+      margin-bottom: 12px;
+    }
+
+    .tag.alt {
+      background: var(--pink);
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.18;
+      letter-spacing: 0.02em;
+      word-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .meta-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .meta-box span b {
+      color: var(--text);
+    }
+
+    /* Review Article Content */
+    .review-content {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .review-content p {
+      margin-bottom: 18px;
+    }
+
+    .review-content h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.02em;
+      word-spacing: 0.05em;
+      margin: 32px 0 12px;
+      color: var(--pink);
+    }
+
+    .score-block {
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .score-title {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--pink);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .tools-list {
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .tools-list ul {
+      list-style: square;
+      padding-left: 20px;
+      margin-top: 8px;
+      color: var(--text);
+    }
+
+    .review-image-wrap {
+      margin-top: 24px;
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+    }
+
+    .review-image-wrap img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+    }
+
+    .summary-box {
+      background: rgba(244, 184, 202, 0.06);
+      border: 1px solid var(--pink-dim);
+      border-radius: 8px;
+      padding: 24px;
+      margin-top: 36px;
+    }
+
+    .summary-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      letter-spacing: 0.015em;
+      word-spacing: 0.04em;
+      color: var(--pink);
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0;
+      margin-top: 48px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .footer-inner a:hover {
+      color: var(--pink);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">WAMSGOAT</a>
+      <nav>
+        <div class="dropdown-wrap">
+          <button class="nav-menu-btn" id="top-nav-btn"><span class="pink-dash"></span> MENU &#9662;</button>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner">
+              <a href="index.html" class="dropdown-item">Home &rarr;</a>
+              <a href="mice.html" class="dropdown-item">Mice Reviews &rarr;</a>
+              <a href="mousepads.html" class="dropdown-item">Mousepad Reviews &rarr;</a>
+              <a href="accessories.html" class="dropdown-item">Accessories & Skates &rarr;</a>
+              <a href="guides.html" class="dropdown-item">Guides &rarr;</a>
+              <a href="about.html" class="dropdown-item">About &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <a href="mice.html" class="back-link">&larr; Back to Mice Reviews</a>
+
+    <article>
+      <div>
+        <span class="tag">MOUSE</span>
+        <span class="tag alt">WIRELESS</span>
+      </div>
+
+      <h1>PMM Zen 8k Mini Review</h1>
+
+      <div class="meta-box">
+        <span>Hand Size Reference: <b>20x10</b></span>
+      </div>
+
+      <div class="review-content">
+        <p>Opening with some info about myself and how long I have used the mouse. I am Celestial on Marvel Rivals,
+          Champ numerous times on R6, and used to be Global Elite in CSGO back in the day. Also play solo games either
+          on MNK or controller.</p>
+
+        <p>I have been using the Zen 8k Mini since July on and off with other mice. But can say the Zen has had a lot of
+          desk time in the last few months.</p>
+
+        <p>Also have to say: I have no affiliation with PMM and bought this product with my own money. This is an honest
+          review.</p>
+
+        <h2>Onto the review:</h2>
+
+        <p>I purchased the DIY mod kit for my current “main” mouse at the time (Viper v3 pro) as I really liked the
+          shape. But having used smaller and lighter mice wanted something that followed that. I had already purchased
+          the Cyber 4.1 mod kit from PMM and knew I could trust the Zen. So I made the purchase.</p>
+
+        <p>In the time I have used the Zen I have played many different games to test how it is. The Zen is just such a
+          good universal shape for someone who wanted something a tad smaller than others available.</p>
+
+        <h2>Shape:</h2>
+        <p>I adore the shape. It is easily my favourite thing about it. I have 20x10 hands for reference and can
+          easily knuckle claw grip it. Super comfy and fits like a glove.</p>
+        <p>Due to the smaller shape of the Zen Mini it will be hard for anyone with even average sized hands to palm grip.</p>
+
+        <h2>Weight:</h2>
+        <p>Coming in at 31g on my scales with the magnesium scroll wheel and both CF rods. It’s just so light compared to my other mice in the same size range.</p>
+
+        <h2>Build Quality:</h2>
+        <p>Due to choosing the “Light” shell and not the “Solid” version it is somewhat flexible when trying to push
+          into the shell. But when gaming this is a non-issue.</p>
+        <p>Only reason I’m taking off a point in this category is due to the 3D printed nature of the shell (even if it does feel more solid than some non 3D printed mice).</p>
+
+        <h2>Experience with PMM and Shipping:</h2>
+        <p>When I purchased my Cyber 4.1 shipping updates were slow and inconsistent along with taking a while to arrive. No fault of PMM.</p>
+        <p>But this was a completely different experience. Everything was quick and easy. The PMM website is beautiful and easy to navigate. They got my order shipped fast. Just great. This should now be even better for US based customers.</p>
+
+        <h2>Building the Mouse:</h2>
+        <p>Mod kit comes with everything needed to assemble the mouse. However I found the Zen Mini a little finicky to assemble, mainly due to the size and shape of the PCB and the shell sort of interfering with it.</p>
+        <p>I also added both CF rods which took me longer than I wish to admit to put in.</p>
+
+        <h2>Summary:</h2>
+        <p>If you are looking for a lightweight alternative to your Viper v3 pro don’t look any further than the PMM Zen 8k Mini. It is simply a phenomenal mouse.</p>
+
+        <div class="review-image-wrap">
+          <a href="https://github.com/wamsgoat/Images/blob/35f4cb660e65f06e333f552b23585e13f79c6c5c/PMM%20Zen%20Mini.png?raw=true" target="_blank" rel="noopener noreferrer">
+            <img src="https://github.com/wamsgoat/Images/blob/35f4cb660e65f06e333f552b23585e13f79c6c5c/PMM%20Zen%20Mini.png?raw=true" alt="PMM Zen 8k Mini Mouse">
+          </a>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© 2026 Wamsgoat.</span>
+      <span><a href="mice.html">Back to Mice</a> · <a href="index.html">Home</a></span>
+    </div>
+  </footer>
+
+</body>
+
+</html>
