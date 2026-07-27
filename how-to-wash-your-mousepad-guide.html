@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guides | Wamsgoat</title>
-  <meta name="description" content="Guides and advice for choosing and maintaining gaming mice and mousepads.">
+  <title>How to Wash Your Mousepad | Wamsgoat</title>
+  <meta name="description" content="Step-by-step guide on cleaning and washing cloth mousepads safely without damaging the glide.">
   <link rel="icon" type="image/jpeg" href="https://github.com/wamsgoat/github.io/blob/b5e5160f2e6b89c8d084c785d22875ee3e828b8c/other_img/kirby.jpg?raw=true">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
@@ -184,55 +184,37 @@
       letter-spacing: 0.02em;
       word-spacing: 0.06em;
       margin-bottom: 24px;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.02em;
+      word-spacing: 0.05em;
+      margin: 28px 0 12px;
       color: var(--pink);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      margin-top: 28px;
+    .guide-content p {
+      margin-bottom: 18px;
     }
 
-    .card {
+    .meta-box {
       background: var(--bg-surface);
       border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 32px 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-      text-decoration: none;
-      color: inherit;
-      cursor: pointer;
-    }
-
-    a.card:hover {
-      border-color: var(--pink);
-      transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(244, 184, 202, 0.15);
-    }
-
-    a.card:hover h3 {
-      color: var(--pink);
-    }
-
-    .card h3 {
-      font-family: var(--font-display);
-      font-size: 1.45rem;
-      letter-spacing: 0.015em;
-      word-spacing: 0.04em;
-      margin: 0;
-      transition: color 0.2s ease;
-    }
-
-    .card-date {
+      border-radius: 8px;
+      padding: 16px 20px;
       font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.82rem;
       color: var(--muted);
-      margin-top: 4px;
-      text-align: center;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .meta-box span b {
+      color: var(--text);
     }
 
     .twitter-nav-link {
@@ -299,37 +281,22 @@
   </header>
 
   <main class="wrap">
-    <a href="index.html" class="back-link">&larr; Back to Home</a>
+    <a href="guides.html" class="back-link">&larr; Back to Guides</a>
 
-    <h1>Guides</h1>
+    <h1>How to wash your mousepad</h1>
 
-    <div class="grid">
-      <a href="how-to-find-the-right-mousepad-guide.html" class="card">
-        <h3>How to choose a cloth mousepad</h3>
-        <span class="card-date">27/07/2026</span>
-      </a>
+    <div class="meta-box">
+      <span>Date: <b>27/07/2026</b></span>
+    </div>
 
-      <a href="hall-effect-recommendation-list-guide.html" class="card">
-        <h3>Hall effect recommendation list</h3>
-        <span class="card-date">27/07/2026</span>
-      </a>
-
-      <a href="how-to-select-the-right-mouse-guide.html" class="card">
-        <h3>How to select the right mouse</h3>
-        <span class="card-date">27/07/2026</span>
-      </a>
-
-      <a href="how-to-wash-your-mousepad-guide.html" class="card">
-        <h3>How to wash your mousepad</h3>
-        <span class="card-date">27/07/2026</span>
-      </a>
+    <div class="guide-content">
     </div>
   </main>
 
   <footer>
     <div class="footer-inner">
       <span>© 2026 Wamsgoat.</span>
-      <span><a href="index.html">Home</a> · <a href="contact.html">Contact</a></span>
+      <span><a href="guides.html">Back to Guides</a> · <a href="index.html">Home</a> · <a href="contact.html">Contact</a></span>
     </div>
   </footer>
 
