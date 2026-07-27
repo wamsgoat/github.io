@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wamsgoat</title>
+  <title>Mousepad Reviews | Wamsgoat</title>
+  <meta name="description" content="In-depth, long-term testing and reviews of gaming mousepads.">
   <link rel="icon" type="image/jpeg" href="https://github.com/wamsgoat/github.io/blob/b5e5160f2e6b89c8d084c785d22875ee3e828b8c/other_img/kirby.jpg?raw=true">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -183,7 +184,7 @@
             <a href="index.html" class="dropdown-item">Home &rarr;</a>
             <a href="mice.html" class="dropdown-item">Mice Reviews &rarr;</a>
             <a href="mousepads.html" class="dropdown-item">Mousepad Reviews &rarr;</a>
-            <a href="accessories.html" class="dropdown-item">Accessories & Skates &rarr;</a>
+            <a href="accessories.html" class="dropdown-item">Accessories &amp; Skates &rarr;</a>
             <a href="guides.html" class="dropdown-item">Guides &rarr;</a>
             <a href="about.html" class="dropdown-item">About &rarr;</a>
           </div>
@@ -214,7 +215,7 @@
     </a>
   </section>
 
-  <!-- Recent Mousepad Reviews Section (3 Sectors) -->
+  <!-- Recent Mousepad Reviews Section -->
   <section class="section">
     <div class="section-head">
       <h2>Recent Mousepad Reviews</h2>
@@ -252,7 +253,7 @@
       <h2>All Reviews</h2>
     </div>
     <div class="grid">
-      <a href="artisan-fx-zero.html" class="featured">
+      <a href="artisan-fx-zero.html" class="card">
         <div>
           <span class="tag">MOUSEPAD</span>
           <span class="tag alt">BALANCED</span>
@@ -260,7 +261,7 @@
         <h3>Artisan FX Zero</h3>
       </a>
 
-      <a href="pmm-s2p-2.0.html" class="featured">
+      <a href="pmm-s2p-2.0.html" class="card">
         <div>
           <span class="tag">MOUSEPAD</span>
           <span class="tag alt">SPEED</span>
@@ -268,7 +269,7 @@
         <h3>PMM S2P 2.0</h3>
       </a>
 
-      <a href="the-masterpiece-vortex-v1.html" class="featured">
+      <a href="the-masterpiece-vortex-v1.html" class="card">
         <div>
           <span class="tag">MOUSEPAD</span>
           <span class="tag alt">SPEED</span>
@@ -285,6 +286,20 @@
     <span><a href="index.html">Back to Home</a> · <a href="contact.html">Contact</a></span>
   </div>
 </footer>
+
+<script>
+  const topNavBtn = document.getElementById('top-nav-btn');
+  if (topNavBtn) {
+    const topMenu = topNavBtn.nextElementSibling;
+    topNavBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (topMenu) topMenu.classList.toggle('show');
+    });
+    document.addEventListener('click', () => {
+      if (topMenu) topMenu.classList.remove('show');
+    });
+  }
+</script>
 
 </body>
 </html>

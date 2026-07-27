@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wamsgoat</title>
+  <title>How to Select the Right Mouse | Wamsgoat</title>
+  <meta name="description" content="Guide on selecting the perfect gaming mouse for your hand size, grip style, and weight preference.">
   <link rel="icon" type="image/jpeg" href="https://github.com/wamsgoat/github.io/blob/b5e5160f2e6b89c8d084c785d22875ee3e828b8c/other_img/kirby.jpg?raw=true">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
@@ -185,6 +186,15 @@
       margin-bottom: 24px;
     }
 
+    h2 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.02em;
+      word-spacing: 0.05em;
+      margin: 28px 0 12px;
+      color: var(--pink);
+    }
+
     .guide-content {
       font-size: 1rem;
       color: var(--text);
@@ -193,24 +203,6 @@
 
     .guide-content p {
       margin-bottom: 18px;
-    }
-
-    .guide-content h2 {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      letter-spacing: 0.02em;
-      word-spacing: 0.05em;
-      margin: 36px 0 12px;
-      color: var(--pink);
-    }
-
-    .guide-content ul {
-      margin-bottom: 24px;
-      padding-left: 24px;
-    }
-
-    .guide-content li {
-      margin-bottom: 8px;
     }
 
     /* Footer */
@@ -249,7 +241,7 @@
               <a href="index.html" class="dropdown-item">Home &rarr;</a>
               <a href="mice.html" class="dropdown-item">Mice Reviews &rarr;</a>
               <a href="mousepads.html" class="dropdown-item">Mousepad Reviews &rarr;</a>
-              <a href="accessories.html" class="dropdown-item">Accessories & Skates &rarr;</a>
+              <a href="accessories.html" class="dropdown-item">Accessories &amp; Skates &rarr;</a>
               <a href="guides.html" class="dropdown-item">Guides &rarr;</a>
               <a href="about.html" class="dropdown-item">About &rarr;</a>
             </div>
@@ -262,17 +254,37 @@
   <main class="wrap">
     <a href="guides.html" class="back-link">&larr; Back to Guides</a>
 
-    <article class="guide-content">
-      <h1>How to Select the Right Mouse</h1>
-    </article>
+    <h1>How to select the right mouse</h1>
+
+    <div class="guide-content">
+      <h2>Hand Size &amp; Grip Style</h2>
+      <p>Measure your hand from wrist to middle fingertip. Claw grip benefits from rear humps, palm grip requires full support, and fingertip grip works best with short, lightweight mice.</p>
+
+      <h2>Weight &amp; Balance</h2>
+      <p>Lower weight (under 55g) reduces fatigue and aids quick micro-adjustments in tactical shooters.</p>
+    </div>
   </main>
 
   <footer>
     <div class="footer-inner">
       <span>© 2026 Wamsgoat.</span>
-      <span><a href="guides.html">Guides</a> · <a href="mice.html">Mice</a> · <a href="index.html">Home</a></span>
+      <span><a href="guides.html">Back to Guides</a> · <a href="index.html">Home</a> · <a href="contact.html">Contact</a></span>
     </div>
   </footer>
+
+  <script>
+    const topNavBtn = document.getElementById('top-nav-btn');
+    if (topNavBtn) {
+      const topMenu = topNavBtn.nextElementSibling;
+      topNavBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (topMenu) topMenu.classList.toggle('show');
+      });
+      document.addEventListener('click', () => {
+        if (topMenu) topMenu.classList.remove('show');
+      });
+    }
+  </script>
 
 </body>
 

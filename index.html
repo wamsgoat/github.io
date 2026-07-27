@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wamsgoat</title>
+  <title>Wamsgoat - Gaming Peripheral Reviews</title>
+  <meta name="description" content="In-depth, long-term reviews of high-performance gaming mice, mousepads, skates, and accessories.">
   <link rel="icon" type="image/jpeg" href="https://github.com/wamsgoat/github.io/blob/b5e5160f2e6b89c8d084c785d22875ee3e828b8c/other_img/kirby.jpg?raw=true">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -190,7 +191,7 @@
             <a href="index.html" class="dropdown-item">Home &rarr;</a>
             <a href="mice.html" class="dropdown-item">Mice Reviews &rarr;</a>
             <a href="mousepads.html" class="dropdown-item">Mousepad Reviews &rarr;</a>
-            <a href="accessories.html" class="dropdown-item">Accessories & Skates &rarr;</a>
+            <a href="accessories.html" class="dropdown-item">Accessories &amp; Skates &rarr;</a>
             <a href="guides.html" class="dropdown-item">Guides &rarr;</a>
             <a href="about.html" class="dropdown-item">About &rarr;</a>
           </div>
@@ -205,7 +206,7 @@
     <h1>Helping you find<br>the right <span class="accent">peripherals</span></h1>
     
     <div class="hero-actions">
-      <a href="ducklabs-green.html" class="btn btn-primary">Read latest review</a>
+      <a href="pmm-cyber-4.1.html" class="btn btn-primary">Read latest review</a>
       
       <!-- Browse by Category Dropdown Menu -->
       <div class="dropdown-wrap">
@@ -214,7 +215,7 @@
           <div class="dropdown-inner">
             <a href="mice.html" class="dropdown-item">Mice Reviews &rarr;</a>
             <a href="mousepads.html" class="dropdown-item">Mousepad Reviews &rarr;</a>
-            <a href="accessories.html" class="dropdown-item">Accessories & Skates &rarr;</a>
+            <a href="accessories.html" class="dropdown-item">Accessories &amp; Skates &rarr;</a>
             <a href="guides.html" class="dropdown-item">Guides &rarr;</a>
           </div>
         </div>
@@ -272,12 +273,12 @@
       <h2>Recent Reviews</h2>
     </div>
     <div class="grid">
-      <a href="gw-lycan.html" class="card">
+      <a href="pmm-cyber-4.1.html" class="card">
         <div>
           <span class="tag">MOUSE</span>
           <span class="tag alt">WIRELESS</span>
         </div>
-        <h3>G-Wolves Lycan</h3>
+        <h3>PMM Cyber 4.1</h3>
       </a>
 
       <a href="artisan-fx-zero.html" class="card">
@@ -298,7 +299,7 @@
     </div>
   </section>
 
-  <!-- Category Exploration Cards Section (Replaces Recent Hating) -->
+  <!-- Category Exploration Cards Section -->
   <section class="section">
     <div class="section-head">
       <h2>Explore Review Categories</h2>
@@ -329,17 +330,27 @@
 <script>
   const dropdownBtn = document.getElementById('cat-dropdown-btn');
   const dropdownMenu = document.getElementById('cat-dropdown-menu');
+  const topNavBtn = document.getElementById('top-nav-btn');
 
   if (dropdownBtn && dropdownMenu) {
     dropdownBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       dropdownMenu.classList.toggle('show');
     });
+  }
 
-    document.addEventListener('click', () => {
-      dropdownMenu.classList.remove('show');
+  if (topNavBtn) {
+    const topMenu = topNavBtn.nextElementSibling;
+    topNavBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (topMenu) topMenu.classList.toggle('show');
     });
   }
+
+  document.addEventListener('click', () => {
+    if (dropdownMenu) dropdownMenu.classList.remove('show');
+    document.querySelectorAll('.dropdown-menu').forEach(m => m.classList.remove('show'));
+  });
 </script>
 
 </body>
