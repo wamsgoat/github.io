@@ -1,7 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
+  <script>
+    (function() {
+      var saved = localStorage.getItem('wamsgoat-theme');
+      var sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'light' || (!saved && !sysDark)) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ducklabs Green dots Review | Wamsgoat</title>
@@ -296,6 +305,84 @@
     .footer-inner a:hover {
       color: var(--pink);
     }
+  
+    /* Light Theme Overrides */
+    :root[data-theme="light"] {
+      --bg-deep: #f5f6f8;
+      --bg-surface: #ffffff;
+      --bg-raised: #eef1f5;
+      --bg-card: #ffffff;
+      --line: #dbe0e6;
+      --line-highlight: #b0b8c4;
+
+      --pastel-pink: #d6336c;
+      --pastel-pink-hover: #b02555;
+      --pastel-pink-glow: rgba(214, 51, 108, 0.2);
+      --pink: #d6336c;
+      --pink-dim: #992850;
+      --pink-bg: rgba(214, 51, 108, 0.08);
+
+      --slate-grey: #5c6573;
+      --light-grey: #1e293b;
+      --pure-white: #0f172a;
+      --text: #0f172a;
+      --muted: #64748b;
+      --text-muted: #64748b;
+
+      --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+      --shadow-glow: 0 0 24px var(--pastel-pink-glow);
+    }
+
+    :root[data-theme="light"] body {
+      background-color: var(--bg-deep);
+      color: var(--text);
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(214, 51, 108, 0.05), transparent 45%),
+        radial-gradient(circle at 85% 30%, rgba(100, 116, 139, 0.05), transparent 50%),
+        radial-gradient(circle at 50% 85%, rgba(214, 51, 108, 0.04), transparent 60%);
+    }
+
+    :root[data-theme="light"] header {
+      background: rgba(255, 255, 255, 0.88);
+      border-bottom-color: var(--line);
+    }
+
+    :root[data-theme="light"] .dropdown-menu,
+    :root[data-theme="light"] .dropdown-inner {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      border-color: var(--line);
+    }
+
+    :root[data-theme="light"] .nav-menu-btn {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      background: var(--bg-surface);
+      border: 1px solid var(--line);
+      color: var(--text);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .theme-toggle-btn:hover {
+      background: var(--pink-bg);
+      color: var(--pink);
+      border-color: var(--pink);
+      transform: scale(1.05);
+    }
+
+    :root[data-theme="light"] .theme-icon-moon { display: block; }
+    :root[data-theme="light"] .theme-icon-sun { display: none; }
+    :root:not([data-theme="light"]) .theme-icon-sun { display: block; }
+    :root:not([data-theme="light"]) .theme-icon-moon { display: none; }
   </style>
 </head>
 
@@ -308,6 +395,10 @@
         <a href="https://twitter.com/Wamsgoat" target="_blank" rel="noopener noreferrer" class="twitter-nav-link" aria-label="Twitter @Wamsgoat" title="Twitter: @Wamsgoat">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/></svg>
         </a>
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark mode" title="Toggle Light/Dark Mode">
+        <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
         <div class="dropdown-wrap">
           <button class="nav-menu-btn" id="top-nav-btn"><span class="pink-dash"></span> MENU &#9662;</button>
           <div class="dropdown-menu">
@@ -369,8 +460,29 @@
         if (topMenu) topMenu.classList.remove('show');
       });
     }
-  </script>
+  
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const curTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const nextTheme = curTheme === 'light' ? 'dark' : 'light';
+      if (nextTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      else document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('wamsgoat-theme', nextTheme);
+    });
+  }  window.addEventListener('storage', (e) => {
+    if (e.key === 'wamsgoat-theme') {
+      if (e.newValue === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    }
+  });
+</script>
 
 </body>
 
 </html>
+
+
