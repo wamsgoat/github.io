@@ -1,40 +1,42 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <script>
-    (function() {
+    (function () {
       var saved = localStorage.getItem('wamsgoat-theme');
       var sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       if (saved === 'light' || (!saved && !sysDark)) {
         document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
-  
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const curTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-      const nextTheme = curTheme === 'light' ? 'dark' : 'light';
-      if (nextTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
-      else document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('wamsgoat-theme', nextTheme);
-    });
-  }  window.addEventListener('storage', (e) => {
-    if (e.key === 'wamsgoat-theme') {
-      if (e.newValue === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
-        document.documentElement.removeAttribute('data-theme');
+
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const curTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const nextTheme = curTheme === 'light' ? 'dark' : 'light';
+        if (nextTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        else document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('wamsgoat-theme', nextTheme);
+      });
+    } window.addEventListener('storage', (e) => {
+      if (e.key === 'wamsgoat-theme') {
+        if (e.newValue === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
       }
-    }
-  });
-</script>
+    });
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hall Effect Keyboard Recommendations | Wamsgoat</title>
-  <meta name="description" content="Recommendation list for Hall Effect and Rapid Trigger magnetic switch gaming keyboards.">
-  <link rel="icon" type="image/jpeg" href="https://github.com/wamsgoat/github.io/blob/b5e5160f2e6b89c8d084c785d22875ee3e828b8c/other_img/kirby.jpg?raw=true">
+  <meta name="description"
+    content="Recommendation list for Hall Effect and Rapid Trigger magnetic switch gaming keyboards.">
+  <link rel="icon" type="image/jpeg"
+    href="https://github.com/wamsgoat/github.io/blob/b5e5160f2e6b89c8d084c785d22875ee3e828b8c/other_img/kirby.jpg?raw=true">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
@@ -116,7 +118,11 @@
     }
 
     /* Header Dropdown Menu */
-    .dropdown-wrap { position: relative; display: inline-block; }
+    .dropdown-wrap {
+      position: relative;
+      display: inline-block;
+    }
+
     .nav-menu-btn {
       font-family: var(--font-mono);
       font-size: 0.8rem;
@@ -134,6 +140,7 @@
       gap: 8px;
       transition: all 0.2s ease;
     }
+
     .nav-menu-btn .pink-dash {
       width: 10px;
       height: 2px;
@@ -143,6 +150,7 @@
       box-shadow: 0 0 8px var(--pink);
       transition: transform 0.2s ease;
     }
+
     .nav-menu-btn:hover,
     .dropdown-wrap:hover .nav-menu-btn {
       border-color: var(--pink);
@@ -151,9 +159,11 @@
       box-shadow: 0 0 16px rgba(244, 184, 202, 0.15);
       transform: translateY(-1px);
     }
+
     .dropdown-wrap:hover .nav-menu-btn .pink-dash {
       transform: scaleX(1.3);
     }
+
     .dropdown-menu {
       display: none;
       position: absolute;
@@ -162,17 +172,22 @@
       padding-top: 6px;
       z-index: 50;
     }
+
     .dropdown-wrap:hover .dropdown-menu,
     .dropdown-menu:hover,
-    .dropdown-menu.show { display: block; }
+    .dropdown-menu.show {
+      display: block;
+    }
+
     .dropdown-inner {
       background: var(--bg-surface);
       border: 1px solid var(--line);
       border-radius: 6px;
       min-width: 220px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
       overflow: hidden;
     }
+
     .dropdown-item {
       display: block;
       padding: 12px 16px;
@@ -182,8 +197,15 @@
       border-bottom: 1px solid var(--line);
       transition: background 0.15s ease, color 0.15s ease;
     }
-    .dropdown-item:last-child { border-bottom: none; }
-    .dropdown-item:hover { background: rgba(244, 184, 202, 0.12); color: var(--pink); }
+
+    .dropdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+      background: rgba(244, 184, 202, 0.12);
+      color: var(--pink);
+    }
 
     /* Content Area */
     main {
@@ -278,6 +300,7 @@
       padding: 4px;
       border-radius: 6px;
     }
+
     .twitter-nav-link:hover {
       color: var(--pink);
       transform: scale(1.15);
@@ -303,7 +326,7 @@
     .footer-inner a:hover {
       color: var(--pink);
     }
-  
+
     /* Light Theme Overrides */
     :root[data-theme="light"] {
       --bg-deep: #f5f6f8;
@@ -377,10 +400,21 @@
       transform: scale(1.05);
     }
 
-    :root[data-theme="light"] .theme-icon-moon { display: block; }
-    :root[data-theme="light"] .theme-icon-sun { display: none; }
-    :root:not([data-theme="light"]) .theme-icon-sun { display: block; }
-    :root:not([data-theme="light"]) .theme-icon-moon { display: none; }
+    :root[data-theme="light"] .theme-icon-moon {
+      display: block;
+    }
+
+    :root[data-theme="light"] .theme-icon-sun {
+      display: none;
+    }
+
+    :root:not([data-theme="light"]) .theme-icon-sun {
+      display: block;
+    }
+
+    :root:not([data-theme="light"]) .theme-icon-moon {
+      display: none;
+    }
   </style>
 </head>
 
@@ -390,13 +424,32 @@
     <div class="nav-inner">
       <a href="index.html" class="logo">WAMSGOAT</a>
       <nav style="display: flex; align-items: center; gap: 14px;">
-        <a href="https://twitter.com/Wamsgoat" target="_blank" rel="noopener noreferrer" class="twitter-nav-link" aria-label="Twitter @Wamsgoat" title="Twitter: @Wamsgoat">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z"/></svg>
+        <a href="https://twitter.com/Wamsgoat" target="_blank" rel="noopener noreferrer" class="twitter-nav-link"
+          aria-label="Twitter @Wamsgoat" title="Twitter: @Wamsgoat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.936 9.936 0 0024 4.59z" />
+          </svg>
         </a>
-      <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark mode" title="Toggle Light/Dark Mode">
-        <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-        <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-      </button>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark mode"
+          title="Toggle Light/Dark Mode">
+          <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
         <div class="dropdown-wrap">
           <button class="nav-menu-btn" id="top-nav-btn"><span class="pink-dash"></span> MENU &#9662;</button>
           <div class="dropdown-menu">
@@ -420,7 +473,7 @@
     <h1>Hall effect recommendation list</h1>
 
     <div class="meta-box">
-      <span>Date: <b>27/07/2026</b></span>
+      <span>Date: <b>14/08/2026</b></span>
     </div>
 
 
@@ -433,26 +486,28 @@
 
       <h2>&lt;$100:</h2>
       <ul>
+        <li>Kush60HE PCB (PCB AND PLATE ONLY)</li>
         <li>Drunkdeer X60</li>
         <li>Irok ND63 Ultra</li>
         <li>Everglide AE64 Pro (Prebuilt)</li>
         <li>Everglide SU66 (PCB AND PLATE ONLY)</li>
+        <li>ATK RS63 Air</li>
         <li>Irok Mercury68 Max</li>
         <li>Irok ND68 Pro</li>
         <li>Everglide AE68 Pro (ABS)</li>
         <li>Irok MG68 Plus</li>
         <li>VGN Neon 68HE Super Competitive Plus</li>
+        <li>ATK RS6 Air</li>
         <li>Irok MG75 Pro/Max</li>
         <li>Irok Mars75</li>
-        <li>ATK RS7 Air</li>
         <li>Weikav EG75</li>
+        <li>ATK RS7 Air</li>
         <li>VGN Neon Super Competitive Wired</li>
         <li>Geonworks Venom (Anything with Geonworks Venom PCB)
           <ul>
             <li>Venom60HE (v1,v2 or RGB), Venom TKL, Venom65HE</li>
           </ul>
         </li>
-        <li>Kush60HE PCB</li>
       </ul>
 
       <h2>&lt;$150:</h2>
@@ -460,6 +515,7 @@
         <li>Aula AG60 Pro</li>
         <li>Everglide AE68 Pro (Alu)</li>
         <li>Everglide SU75 Ultra</li>
+        <li>Everglide SU75 Pro v2</li>
         <li>Drunkdeer A75 Ultra</li>
         <li>EWEADN X87HE (If on sale)</li>
       </ul>
@@ -471,6 +527,7 @@
         <li>Chillkey Slice68</li>
         <li>Aula AG75 Ultra</li>
         <li>Everglide SU75 Ultra</li>
+        <li>Everglide SU75 Pro v2</li>
         <li>Chilkey Slice75 (FLUX SWITCHES)</li>
         <li>VGN FLASH 75HE</li>
         <li>Wooting 80HE (Overpriced, only good for ISO layout)</li>
@@ -488,12 +545,11 @@
   <footer>
     <div class="footer-inner">
       <span>© 2026 Wamsgoat.</span>
-      <span><a href="guides.html">Back to Guides</a> · <a href="index.html">Home</a> · <a href="contact.html">Contact</a></span>
+      <span><a href="guides.html">Back to Guides</a> · <a href="index.html">Home</a> · <a
+          href="contact.html">Contact</a></span>
     </div>
   </footer>
 
 </body>
 
 </html>
-
-
