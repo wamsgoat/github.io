@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,26 +10,7 @@
         document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
-  
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const curTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-      const nextTheme = curTheme === 'light' ? 'dark' : 'light';
-      if (nextTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
-      else document.documentElement.removeAttribute('data-theme');
-      localStorage.setItem('wamsgoat-theme', nextTheme);
-    });
-  }  window.addEventListener('storage', (e) => {
-    if (e.key === 'wamsgoat-theme') {
-      if (e.newValue === 'light') {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
-        document.documentElement.removeAttribute('data-theme');
-      }
-    }
-  });
-</script>
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ATK U2 Pro Review | Wamsgoat</title>
@@ -563,6 +544,40 @@
       <span><a href="mice.html">Back to Mice</a> &middot; <a href="index.html">Home</a> &middot; <a href="contact.html">Contact</a></span>
     </div>
   </footer>
+
+  <script>
+    const topNavBtn = document.getElementById('top-nav-btn');
+    if (topNavBtn) {
+      const topMenu = topNavBtn.nextElementSibling;
+      topNavBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (topMenu) topMenu.classList.toggle('show');
+      });
+      document.addEventListener('click', () => {
+        if (topMenu) topMenu.classList.remove('show');
+      });
+    }
+
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const curTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const nextTheme = curTheme === 'light' ? 'dark' : 'light';
+        if (nextTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        else document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('wamsgoat-theme', nextTheme);
+      });
+    }
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'wamsgoat-theme') {
+        if (e.newValue === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      }
+    });
+  </script>
 
 </body>
 

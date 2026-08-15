@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,25 +10,6 @@
         document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
-
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', () => {
-        const curTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-        const nextTheme = curTheme === 'light' ? 'dark' : 'light';
-        if (nextTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
-        else document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('wamsgoat-theme', nextTheme);
-      });
-    } window.addEventListener('storage', (e) => {
-      if (e.key === 'wamsgoat-theme') {
-        if (e.newValue === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        } else {
-          document.documentElement.removeAttribute('data-theme');
-        }
-      }
-    });
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -540,6 +521,11 @@
           </ul>
         </li>
       </ul>
+
+      <h2 style="margin-top: 36px;">
+        <a href="https://docs.google.com/document/d/e/2PACX-1vSsjTA29tUSQDgT_FWmvX2nHg17RLzCXdZnBV2pdAWO2SqJmzeNl9EQNc2Yw2Cy4kHjIBcDVVCUgErC/pub" target="_blank" rel="noopener noreferrer" style="color: var(--pink); text-decoration: none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Inspiration</a>
+      </h2>
+      <p style="color: var(--muted); font-size: 0.95rem; margin-top: 8px;">This is the original list but I have added a few of the newer keyboards and removed ones that are unavailable. Thank you.</p>
     </article>
   </main>
 
@@ -550,6 +536,40 @@
           href="contact.html">Contact</a></span>
     </div>
   </footer>
+
+  <script>
+    const topNavBtn = document.getElementById('top-nav-btn');
+    if (topNavBtn) {
+      const topMenu = topNavBtn.nextElementSibling;
+      topNavBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (topMenu) topMenu.classList.toggle('show');
+      });
+      document.addEventListener('click', () => {
+        if (topMenu) topMenu.classList.remove('show');
+      });
+    }
+
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', () => {
+        const curTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const nextTheme = curTheme === 'light' ? 'dark' : 'light';
+        if (nextTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+        else document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('wamsgoat-theme', nextTheme);
+      });
+    }
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'wamsgoat-theme') {
+        if (e.newValue === 'light') {
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.removeAttribute('data-theme');
+        }
+      }
+    });
+  </script>
 
 </body>
 
