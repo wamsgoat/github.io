@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nullmouse — Mouse Configuration Software</title>
+<meta name="description" content="Advanced gaming mouse configuration and customization software.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg-deepest: #08080a;
+  --bg-base: #0e0e12;
+  --bg-card: #16161c;
+  --bg-card-hover: #1c1c24;
+  --bg-elevated: #1e1e28;
+  --bg-input: #121218;
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-medium: rgba(255,255,255,0.1);
+  --text-primary: #f0f0f4;
+  --text-secondary: rgba(255,255,255,0.55);
+  --text-tertiary: rgba(255,255,255,0.3);
+  --accent: #ffffff;
+  --accent-dim: rgba(255,255,255,0.15);
+  --accent-glow: rgba(255,255,255,0.08);
+  --green: #10b981;
+  --amber: #fbbf24;
+  --red: #f87171;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { font-size: 16px; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-deepest);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  height: 72px;
+  background: var(--bg-base);
+  border-bottom: 1px solid var(--border-subtle);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  flex-shrink: 0;
+}
+.header-left { display: flex; align-items: center; gap: 32px; }
+.logo {
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+}
+.logo-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border-medium);
+}
+
+/* Profile Tabs */
+.profile-tabs { display: flex; gap: 6px; }
+.profile-tab {
+  padding: 8px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+  transition: all var(--transition);
+}
+.profile-tab:hover { color: var(--text-primary); background: var(--accent-glow); }
+.profile-tab.active {
+  background: var(--accent);
+  color: #0e0e12;
+  font-weight: 700;
+}
+.profile-tab .rename-input {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  font-weight: inherit;
+  width: 75px;
+  text-align: center;
+  outline: none;
+  cursor: text;
+}
+.profile-tab.active .rename-input { color: #0e0e12; }
+
+.header-right { display: flex; align-items: center; gap: 12px; }
+.header-btn {
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-medium);
+  color: var(--text-secondary);
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.3px;
+}
+.header-btn:hover { color: var(--text-primary); background: var(--bg-card-hover); border-color: rgba(255,255,255,0.2); }
+.header-btn svg { width: 15px; height: 15px; }
+
+/* ===== MAIN DASHBOARD ===== */
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 24px 36px 36px;
+  max-width: 1620px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 22px 26px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.card:hover { border-color: var(--border-medium); }
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.card-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+}
+
+/* ===== INFO ICON + TOOLTIP ===== */
+.info-wrap { position: relative; display: inline-flex; align-items: center; }
+.info-icon {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--text-tertiary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: help;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  transition: all var(--transition);
+  flex-shrink: 0;
+  line-height: 1;
+}
+.info-icon:hover { border-color: var(--text-primary); color: var(--text-primary); }
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #2a2a36;
+  color: var(--text-primary);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: normal;
+  width: max-content;
+  max-width: 260px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.15s ease;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #2a2a36;
+}
+.info-wrap:hover .tooltip { opacity: 1; visibility: visible; }
+
+/* ===== SETTING ROW ===== */
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 0;
+}
+.setting-row + .setting-row { border-top: 1px solid var(--border-subtle); }
+.setting-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* ===== TOGGLE SWITCH ===== */
+.toggle { position: relative; width: 48px; height: 26px; flex-shrink: 0; }
+.toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+.toggle-track {
+  position: absolute;
+  inset: 0;
+  border-radius: 13px;
+  background: rgba(255,255,255,0.12);
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.toggle-track::after {
+  content: '';
+  position: absolute;
+  left: 2px; top: 2px;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+  transition: all var(--transition);
+}
+.toggle input:checked + .toggle-track { background: var(--green); }
+.toggle input:checked + .toggle-track::after {
+  left: 24px;
+  background: #0e0e12;
+}
+
+/* ===== CUSTOM RANGE SLIDER ===== */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.1);
+  outline: none;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255,255,255,0.25);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 14px rgba(255,255,255,0.4);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(255,255,255,0.25);
+}
+input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.2); }
+
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+.slider-row input[type="range"] { flex: 1; }
+.slider-value {
+  min-width: 68px;
+  text-align: right;
+  font-size: 1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+/* ===== DPI STAGES ===== */
+.dpi-stages { display: flex; gap: 6px; margin-bottom: 18px; }
+.dpi-stage-btn {
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+  letter-spacing: 0.5px;
+}
+.dpi-stage-btn:hover { border-color: var(--border-medium); color: var(--text-primary); }
+.dpi-stage-btn.active {
+  background: var(--accent);
+  color: var(--bg-base);
+  border-color: var(--accent);
+}
+
+.dpi-readout {
+  text-align: center;
+  font-size: 3.4rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 10px 0 2px;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+.dpi-readout-sub {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* ===== POLLING RATE BUTTONS ===== */
+.poll-rate-group {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+.poll-rate-btn {
+  height: 44px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  min-width: 0;
+}
+.poll-rate-btn:hover { border-color: var(--border-medium); color: var(--text-primary); }
+.poll-rate-btn.active {
+  background: var(--accent);
+  color: var(--bg-base);
+  border-color: var(--accent);
+}
+
+/* ===== BUTTON REMAP ===== */
+.remap-grid { display: flex; flex-direction: column; gap: 8px; }
+.remap-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  border: 1px solid var(--border-subtle);
+  transition: border-color var(--transition);
+}
+.remap-row:hover { border-color: var(--border-medium); }
+.remap-btn-name {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.remap-btn-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.5;
+}
+.remap-select {
+  background: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.84rem;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: border-color var(--transition);
+  min-width: 140px;
+}
+.remap-select:hover, .remap-select:focus { border-color: rgba(255,255,255,0.3); }
+.remap-select option { background: var(--bg-card); color: var(--text-primary); }
+
+/* ===== SECTION DIVIDER ===== */
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 16px 0 12px;
+}
+.section-sub-title {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 10px;
+}
+
+.dash-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .dashboard { grid-template-columns: 1fr 1fr; }
+  .dash-col:nth-child(2) { grid-column: 1 / 3; order: 3; }
+}
+@media (max-width: 700px) {
+  .dashboard { grid-template-columns: 1fr; padding: 16px; }
+  .dash-col:nth-child(2) { grid-column: auto; order: initial; }
+  .header { flex-wrap: wrap; height: auto; padding: 14px 18px; gap: 12px; }
+}
+
+/* ===== SUBTLE GLOW EFFECT ON ACTIVE ELEMENTS ===== */
+.card-dpi .dpi-readout { text-shadow: 0 0 30px rgba(255,255,255,0.06); }
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="header-left">
+    <div class="logo">Nullmouse</div>
+    <div class="logo-divider"></div>
+    <div class="profile-tabs" id="profileTabs">
+      <button class="profile-tab active" data-profile="0"><input class="rename-input" value="Profile 1" /></button>
+      <button class="profile-tab" data-profile="1"><input class="rename-input" value="Profile 2" /></button>
+      <button class="profile-tab" data-profile="2"><input class="rename-input" value="Profile 3" /></button>
+      <button class="profile-tab" data-profile="3"><input class="rename-input" value="Profile 4" /></button>
+    </div>
+  </div>
+  <div class="header-right">
+    <button class="header-btn" id="btnImport">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Import
+    </button>
+    <button class="header-btn" id="btnExport">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+      Export
+    </button>
+  </div>
+</header>
+
+<!-- ===== DASHBOARD ===== -->
+<main class="dashboard" id="dashboard">
+
+  <!-- ░░░ LEFT COLUMN ░░░ -->
+  <div class="dash-col">
+    <!-- DPI CONTROL -->
+    <section class="card card-dpi">
+      <div class="card-header">
+        <div class="card-title">DPI Configuration</div>
+        <div class="info-wrap">
+          <span class="info-icon">i</span>
+          <div class="tooltip">Configure your mouse sensitivity. Higher DPI = faster cursor movement. Use stages to quickly switch between presets.</div>
+        </div>
+      </div>
+      <div class="dpi-stages" id="dpiStages">
+        <button class="dpi-stage-btn active" data-stage="0">Stage 1</button>
+        <button class="dpi-stage-btn" data-stage="1">Stage 2</button>
+        <button class="dpi-stage-btn" data-stage="2">Stage 3</button>
+        <button class="dpi-stage-btn" data-stage="3">Stage 4</button>
+        <button class="dpi-stage-btn" data-stage="4">Stage 5</button>
+      </div>
+      <div class="dpi-readout" id="dpiReadout">800</div>
+      <div class="dpi-readout-sub">DPI</div>
+      <div class="slider-row">
+        <input type="range" id="dpiSlider" min="100" max="50000" step="1" value="800" />
+        <span class="slider-value" id="dpiValue">800</span>
+      </div>
+    </section>
+
+    <!-- BUTTON REMAPPING -->
+    <section class="card card-remap">
+      <div class="card-header">
+        <div class="card-title">Button Mapping</div>
+        <div class="info-wrap">
+          <span class="info-icon">i</span>
+          <div class="tooltip">Assign custom functions to each mouse button. Changes are per-profile.</div>
+        </div>
+      </div>
+      <div class="remap-grid" id="remapGrid">
+        <!-- Built by JS -->
+      </div>
+    </section>
+  </div>
+
+  <!-- ░░░ CENTER COLUMN ░░░ -->
+  <div class="dash-col">
+    <!-- PERFORMANCE & SETTINGS -->
+    <section class="card card-toggles">
+      <div class="card-header">
+        <div class="card-title">Performance</div>
+      </div>
+
+      <!-- Comp Mode -->
+      <div class="setting-row">
+        <div class="setting-label">
+          Comp Mode
+          <div class="info-wrap">
+            <span class="info-icon">i</span>
+            <div class="tooltip">High Performance Mode. Disables power-saving features for maximum responsiveness. Best for competitive gaming.</div>
+          </div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="toggleCompMode" /><span class="toggle-track"></span></label>
+      </div>
+
+      <!-- Motion Sync -->
+      <div class="setting-row">
+        <div class="setting-label">
+          Motion Sync
+          <div class="info-wrap">
+            <span class="info-icon">i</span>
+            <div class="tooltip">Synchronizes sensor data with your PC's polling cycle for smoother, more consistent tracking.</div>
+          </div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="toggleMotionSync" /><span class="toggle-track"></span></label>
+      </div>
+
+      <!-- Angle Snap -->
+      <div class="setting-row">
+        <div class="setting-label">
+          Angle Snap
+          <div class="info-wrap">
+            <span class="info-icon">i</span>
+            <div class="tooltip">Smooths out slight hand tremors to help you draw straighter lines. Not recommended for FPS games.</div>
+          </div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="toggleAngleSnap" /><span class="toggle-track"></span></label>
+      </div>
+
+      <!-- Ripple Control -->
+      <div class="setting-row">
+        <div class="setting-label">
+          Ripple Control
+          <div class="info-wrap">
+            <span class="info-icon">i</span>
+            <div class="tooltip">Filters sensor noise at low speeds for more precise micro-adjustments.</div>
+          </div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="toggleRipple" /><span class="toggle-track"></span></label>
+      </div>
+
+      <!-- Long Distance Mode -->
+      <div class="setting-row">
+        <div class="setting-label">
+          Long Distance Mode
+          <div class="info-wrap">
+            <span class="info-icon">i</span>
+            <div class="tooltip">Optimizes wireless signal for use at greater distances from the receiver, at a slight latency cost.</div>
+          </div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="toggleLongDist" /><span class="toggle-track"></span></label>
+      </div>
+
+      <!-- ── SPDT Switch Section ── -->
+      <hr class="section-divider">
+      <div class="section-sub-title">SPDT Switch</div>
+
+      <div class="setting-row">
+        <div class="setting-label">
+          Left Button SPDT State
+          <div class="info-wrap">
+            <span class="info-icon">i</span>
+            <div class="tooltip">Enable or disable the SPDT switch mode for the left mouse button. When on, the button uses a mechanical SPDT switch for faster actuation.</div>
+          </div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="toggleSpdtLeft" checked /><span class="toggle-track"></span></label>
+      </div>
+
+      <div class="setting-row">
+        <div class="setting-label">
+          Right Button SPDT State
+          <div class="info-wrap">
+            <span class="info-icon">i</span>
+            <div class="tooltip">Enable or disable the SPDT switch mode for the right mouse button. When on, the button uses a mechanical SPDT switch for faster actuation.</div>
+          </div>
+        </div>
+        <label class="toggle"><input type="checkbox" id="toggleSpdtRight" checked /><span class="toggle-track"></span></label>
+      </div>
+
+      <!-- ── Sensor Settings Section ── -->
+      <hr class="section-divider">
+      <div class="section-sub-title">Sensor Settings</div>
+
+      <!-- LOD -->
+      <div class="setting-row" style="border-top:none;">
+        <div class="setting-label">
+          Lift-off Distance
+          <div class="info-wrap">
+            <span class="info-icon">i</span>
+            <div class="tooltip">The height at which the sensor stops tracking when you lift the mouse. Lower = more precise for low-sens gamers.</div>
+          </div>
+        </div>
+        <span class="slider-value" id="lodValue">1.0 mm</span>
+      </div>
+      <div class="slider-row" style="margin-bottom:10px;">
+        <input type="range" id="lodSlider" min="5" max="20" step="1" value="10" />
+      </div>
+
+      <!-- Auto Sleep -->
+      <div class="setting-row">
+        <div class="setting-label">
+          Auto Sleep Timer
+          <div class="info-wrap">
+            <span class="info-icon">i</span>
+            <div class="tooltip">Minutes of inactivity before the mouse enters low-power sleep mode. Set to "Off" to disable.</div>
+          </div>
+        </div>
+        <span class="slider-value" id="sleepValue">2 min</span>
+      </div>
+      <div class="slider-row">
+        <input type="range" id="sleepSlider" min="0" max="15" step="1" value="2" />
+      </div>
+    </section>
+  </div>
+
+  <!-- ░░░ RIGHT COLUMN ░░░ -->
+  <div class="dash-col">
+    <!-- POLLING RATE -->
+    <section class="card card-polling">
+      <div class="card-header">
+        <div class="card-title">Polling Rate</div>
+        <div class="info-wrap">
+          <span class="info-icon">i</span>
+          <div class="tooltip">How often the mouse reports its position to the PC per second. Higher = smoother tracking but uses more CPU.</div>
+        </div>
+      </div>
+      <div class="poll-rate-group" id="pollRateGroup">
+        <button class="poll-rate-btn" data-hz="125">125Hz</button>
+        <button class="poll-rate-btn" data-hz="250">250Hz</button>
+        <button class="poll-rate-btn" data-hz="500">500Hz</button>
+        <button class="poll-rate-btn active" data-hz="1000">1000Hz</button>
+        <button class="poll-rate-btn" data-hz="2000">2000Hz</button>
+        <button class="poll-rate-btn" data-hz="4000">4000Hz</button>
+        <button class="poll-rate-btn" data-hz="8000">8000Hz</button>
+      </div>
+    </section>
+
+    <!-- DEVICE STATUS -->
+    <section class="card card-settings">
+      <div class="card-header">
+        <div class="card-title">Device Status</div>
+      </div>
+      <!-- Large battery visualization -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:6px 0 8px;">
+        <div style="font-size:0.95rem;font-weight:600;color:var(--text-primary);">Battery Level</div>
+        <svg width="96" height="96" viewBox="0 0 96 96" id="batteryRing">
+          <circle cx="48" cy="48" r="40" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6"/>
+          <circle cx="48" cy="48" r="40" fill="none" stroke="var(--green)" stroke-width="6"
+                  stroke-dasharray="251.3" stroke-dashoffset="55.3" stroke-linecap="round"
+                  transform="rotate(-90 48 48)" id="batteryArc"/>
+          <text x="48" y="55" text-anchor="middle" fill="var(--text-primary)" font-size="22" font-weight="700" font-family="Inter">78%</text>
+        </svg>
+      </div>
+
+      <!-- Quick stats -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;">
+        <div style="background:var(--bg-input);border-radius:var(--radius-sm);padding:14px 16px;border:1px solid var(--border-subtle);">
+          <div style="font-size:0.72rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">Firmware</div>
+          <div style="font-size:1.05rem;font-weight:700;margin-top:4px;">N/A</div>
+        </div>
+        <div style="background:var(--bg-input);border-radius:var(--radius-sm);padding:14px 16px;border:1px solid var(--border-subtle);">
+          <div style="font-size:0.72rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">Sensor</div>
+          <div style="font-size:1.05rem;font-weight:700;margin-top:4px;">PAW3955</div>
+        </div>
+        <div style="background:var(--bg-input);border-radius:var(--radius-sm);padding:14px 16px;border:1px solid var(--border-subtle);">
+          <div style="font-size:0.72rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">Connection</div>
+          <div style="font-size:1.05rem;font-weight:700;margin-top:4px;">2.4 GHz</div>
+        </div>
+        <div style="background:var(--bg-input);border-radius:var(--radius-sm);padding:14px 16px;border:1px solid var(--border-subtle);">
+          <div style="font-size:0.72rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;">Active DPI</div>
+          <div style="font-size:1.05rem;font-weight:700;margin-top:4px;" id="statDpi">800</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<script>
+(function() {
+  'use strict';
+
+  // ===== PROFILE DATA STORE =====
+  const defaults = () => ({
+    dpiStages: [800, 1600, 3200, 6400, 16000],
+    activeStage: 0,
+    pollRate: 1000,
+    lod: 10,
+    sleep: 2,
+    spdtLeft: true,
+    spdtRight: true,
+    compMode: false,
+    motionSync: false,
+    angleSnap: false,
+    ripple: false,
+    longDist: false,
+    remap: {
+      'Left Mouse Button': 'Left Click',
+      'Right Mouse Button': 'Right Click',
+      'Middle Mouse Button': 'Middle Click',
+      'Mouse 4': 'Forward',
+      'Mouse 5': 'Back',
+      'DPI Button': 'DPI Cycle',
+    }
+  });
+
+  const profiles = [defaults(), defaults(), defaults(), defaults()];
+  let activeProfile = 0;
+
+  function getProfile() { return profiles[activeProfile]; }
+
+  // ===== ELEMENTS =====
+  const $ = id => document.getElementById(id);
+  const dpiSlider = $('dpiSlider');
+  const dpiReadout = $('dpiReadout');
+  const dpiValue = $('dpiValue');
+  const lodSlider = $('lodSlider');
+  const lodValue = $('lodValue');
+  const sleepSlider = $('sleepSlider');
+  const sleepValue = $('sleepValue');
+  const statDpi = $('statDpi');
+
+  // ===== SLIDER FILL HELPER =====
+  function updateSliderFill(slider) {
+    const pct = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+    slider.style.background = `linear-gradient(to right, rgba(255,255,255,0.85) ${pct}%, rgba(255,255,255,0.1) ${pct}%)`;
+  }
+
+  // ===== DPI =====
+  function setDPI(v) {
+    v = Math.max(100, Math.min(50000, Math.round(v)));
+    dpiSlider.value = v;
+    getProfile().dpiStages[getProfile().activeStage] = v;
+    dpiReadout.textContent = v.toLocaleString();
+    dpiValue.textContent = v.toLocaleString();
+    statDpi.textContent = v.toLocaleString();
+    updateSliderFill(dpiSlider);
+  }
+
+  function renderDPI() {
+    const p = getProfile();
+    const val = p.dpiStages[p.activeStage];
+    setDPI(val);
+
+    document.querySelectorAll('.dpi-stage-btn').forEach((btn, i) => {
+      btn.classList.toggle('active', i === p.activeStage);
+    });
+  }
+
+  document.querySelectorAll('.dpi-stage-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      getProfile().activeStage = +btn.dataset.stage;
+      renderDPI();
+    });
+  });
+
+  dpiSlider.addEventListener('input', () => {
+    setDPI(+dpiSlider.value);
+  });
+
+  // Mouse wheel scroll to adjust DPI by 1
+  function handleDPIWheel(e) {
+    e.preventDefault();
+    const current = +dpiSlider.value;
+    const delta = e.deltaY < 0 ? 1 : -1;
+    setDPI(current + delta);
+  }
+
+  dpiSlider.addEventListener('wheel', handleDPIWheel, { passive: false });
+  const dpiSliderRow = dpiSlider.closest('.slider-row');
+  if (dpiSliderRow) {
+    dpiSliderRow.addEventListener('wheel', handleDPIWheel, { passive: false });
+  }
+
+  // ===== POLLING RATE =====
+  function renderPollRate() {
+    const hz = getProfile().pollRate;
+    document.querySelectorAll('.poll-rate-btn').forEach(btn => {
+      btn.classList.toggle('active', +btn.dataset.hz === hz);
+    });
+  }
+  document.querySelectorAll('.poll-rate-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      getProfile().pollRate = +btn.dataset.hz;
+      renderPollRate();
+    });
+  });
+
+  // ===== LOD =====
+  function renderLOD() {
+    const v = getProfile().lod;
+    lodSlider.value = v;
+    lodValue.textContent = (v / 10).toFixed(1) + ' mm';
+    updateSliderFill(lodSlider);
+  }
+  lodSlider.addEventListener('input', () => {
+    getProfile().lod = +lodSlider.value;
+    lodValue.textContent = (+lodSlider.value / 10).toFixed(1) + ' mm';
+    updateSliderFill(lodSlider);
+  });
+
+  // ===== SLEEP =====
+  function renderSleep() {
+    const v = getProfile().sleep;
+    sleepSlider.value = v;
+    sleepValue.textContent = v === 0 ? 'Off' : v + ' min';
+    updateSliderFill(sleepSlider);
+  }
+  sleepSlider.addEventListener('input', () => {
+    getProfile().sleep = +sleepSlider.value;
+    sleepValue.textContent = +sleepSlider.value === 0 ? 'Off' : sleepSlider.value + ' min';
+    updateSliderFill(sleepSlider);
+  });
+
+  // ===== TOGGLES =====
+  const toggleMap = {
+    toggleCompMode: 'compMode',
+    toggleMotionSync: 'motionSync',
+    toggleAngleSnap: 'angleSnap',
+    toggleRipple: 'ripple',
+    toggleLongDist: 'longDist',
+    toggleSpdtLeft: 'spdtLeft',
+    toggleSpdtRight: 'spdtRight',
+  };
+
+  function renderToggles() {
+    const p = getProfile();
+    for (const [elId, key] of Object.entries(toggleMap)) {
+      $(elId).checked = p[key];
+    }
+  }
+
+  for (const [elId, key] of Object.entries(toggleMap)) {
+    $(elId).addEventListener('change', function() {
+      getProfile()[key] = this.checked;
+    });
+  }
+
+  // ===== BUTTON REMAPPING =====
+  const remapFunctions = [
+    'Left Click', 'Right Click', 'Middle Click', 'Forward', 'Back',
+    'DPI Cycle', 'DPI Up', 'DPI Down', 'Scroll Up', 'Scroll Down',
+    'Profile Cycle', 'Media Play/Pause', 'Media Next', 'Media Prev',
+    'Volume Up', 'Volume Down', 'Mute', 'Copy', 'Paste', 'Cut', 'Undo',
+    'Key Macro', 'Disabled'
+  ];
+
+  const remapButtons = ['Left Mouse Button', 'Right Mouse Button', 'Middle Mouse Button', 'Mouse 4', 'Mouse 5', 'DPI Button'];
+
+  function buildRemapGrid() {
+    const grid = $('remapGrid');
+    grid.innerHTML = '';
+    const p = getProfile();
+    remapButtons.forEach(name => {
+      const row = document.createElement('div');
+      row.className = 'remap-row';
+      const label = document.createElement('div');
+      label.className = 'remap-btn-name';
+      label.innerHTML = '<span class="remap-btn-dot"></span>' + name;
+      const sel = document.createElement('select');
+      sel.className = 'remap-select';
+      remapFunctions.forEach(fn => {
+        const opt = document.createElement('option');
+        opt.value = fn;
+        opt.textContent = fn;
+        if (p.remap[name] === fn) opt.selected = true;
+        sel.appendChild(opt);
+      });
+      sel.addEventListener('change', () => { p.remap[name] = sel.value; });
+      row.appendChild(label);
+      row.appendChild(sel);
+      grid.appendChild(row);
+    });
+  }
+
+  // ===== PROFILES =====
+  const profileTabs = document.querySelectorAll('.profile-tab');
+  function switchProfile(idx) {
+    activeProfile = idx;
+    profileTabs.forEach((tab, i) => tab.classList.toggle('active', i === idx));
+    renderAll();
+  }
+  profileTabs.forEach((tab, i) => {
+    tab.addEventListener('click', (e) => {
+      if (e.target.classList.contains('rename-input')) return; // don't switch when clicking input
+      switchProfile(i);
+    });
+  });
+
+  // ===== RENDER ALL =====
+  function renderAll() {
+    renderDPI();
+    renderPollRate();
+    renderLOD();
+    renderSleep();
+    renderToggles();
+    buildRemapGrid();
+  }
+
+  // ===== TOOLTIP EDGE DETECTION =====
+  function fixTooltips() {
+    document.querySelectorAll('.info-wrap').forEach(wrap => {
+      const tooltip = wrap.querySelector('.tooltip');
+      if (!tooltip) return;
+      wrap.addEventListener('mouseenter', () => {
+        tooltip.style.left = '50%';
+        tooltip.style.transform = 'translateX(-50%)';
+        // Let it render, then check bounds
+        requestAnimationFrame(() => {
+          const rect = tooltip.getBoundingClientRect();
+          if (rect.left < 8) {
+            tooltip.style.left = '0';
+            tooltip.style.transform = 'translateX(0)';
+          } else if (rect.right > window.innerWidth - 8) {
+            tooltip.style.left = 'auto';
+            tooltip.style.right = '0';
+            tooltip.style.transform = 'translateX(0)';
+          }
+          if (rect.top < 8) {
+            tooltip.style.bottom = 'auto';
+            tooltip.style.top = 'calc(100% + 8px)';
+          }
+        });
+      });
+      wrap.addEventListener('mouseleave', () => {
+        tooltip.style.left = '';
+        tooltip.style.right = '';
+        tooltip.style.transform = '';
+        tooltip.style.bottom = '';
+        tooltip.style.top = '';
+      });
+    });
+  }
+
+  // ===== IMPORT / EXPORT MOCK =====
+  $('btnImport').addEventListener('click', () => {
+    const btn = $('btnImport');
+    btn.style.borderColor = 'var(--green)';
+    btn.style.color = 'var(--green)';
+    setTimeout(() => { btn.style.borderColor = ''; btn.style.color = ''; }, 800);
+  });
+  $('btnExport').addEventListener('click', () => {
+    const btn = $('btnExport');
+    btn.style.borderColor = 'var(--green)';
+    btn.style.color = 'var(--green)';
+    setTimeout(() => { btn.style.borderColor = ''; btn.style.color = ''; }, 800);
+  });
+
+  // ===== INIT =====
+  renderAll();
+  fixTooltips();
+})();
+</script>
+</body>
+</html>
