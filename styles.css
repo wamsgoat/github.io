@@ -156,10 +156,21 @@ header {
   border-color: var(--pastel-pink);
 }
 
-:root[data-theme="light"] .theme-icon-moon { display: block; }
-:root[data-theme="light"] .theme-icon-sun { display: none; }
-:root:not([data-theme="light"]) .theme-icon-sun { display: block; }
-:root:not([data-theme="light"]) .theme-icon-moon { display: none; }
+:root[data-theme="light"] .theme-icon-moon {
+  display: block;
+}
+
+:root[data-theme="light"] .theme-icon-sun {
+  display: none;
+}
+
+:root:not([data-theme="light"]) .theme-icon-sun {
+  display: block;
+}
+
+:root:not([data-theme="light"]) .theme-icon-moon {
+  display: none;
+}
 
 /* ---------- Dropdowns ---------- */
 .dropdown-wrap {
@@ -222,7 +233,7 @@ header {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   min-width: 220px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
   overflow: hidden;
 }
 
@@ -447,7 +458,8 @@ h1 .accent {
   border-bottom: none;
 }
 
-.search-result-item:hover, .search-result-item.selected {
+.search-result-item:hover,
+.search-result-item.selected {
   background: var(--pink-bg);
 }
 
@@ -630,36 +642,48 @@ a.card:hover h3 {
   color: var(--text);
 }
 
-.review-content, .review-body, .guide-content {
+.review-content,
+.review-body,
+.guide-content {
   margin-top: 24px;
 }
 
-.review-content h2, .review-body h2, .guide-content h2 {
+.review-content h2,
+.review-body h2,
+.guide-content h2 {
   font-family: var(--font-display);
   font-size: 1.25rem;
   color: var(--pastel-pink);
   margin: 28px 0 10px;
 }
 
-.review-content h2:first-child, .review-body h2:first-child, .guide-content h2:first-child {
+.review-content h2:first-child,
+.review-body h2:first-child,
+.guide-content h2:first-child {
   margin-top: 0;
 }
 
-.review-content p, .review-body p, .guide-content p {
+.review-content p,
+.review-body p,
+.guide-content p {
   color: var(--text);
   line-height: 1.7;
   margin-bottom: 16px;
   font-size: 0.95rem;
 }
 
-.review-content ul, .review-body ul, .guide-content ul {
+.review-content ul,
+.review-body ul,
+.guide-content ul {
   margin: 8px 0 20px 24px;
   color: var(--text);
   font-size: 0.95rem;
   line-height: 1.7;
 }
 
-.review-content li, .review-body li, .guide-content li {
+.review-content li,
+.review-body li,
+.guide-content li {
   margin-bottom: 6px;
 }
 
@@ -772,11 +796,13 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
-  .wrap, .nav-inner {
+
+  .wrap,
+  .nav-inner {
     padding-left: 20px;
     padding-right: 20px;
   }
-  
+
   .search-box {
     width: 100%;
   }
